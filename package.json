@@ -1,0 +1,20 @@
+{
+  "name": "github-timeline",
+  "version": "1.0.0",
+  "description": "Study project to pratice how to consume and implement apis, using graphQL and Node.js. Based on challenge at : https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/GitHub-Timeline-App.md.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davimonteiro7/github-timeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davimonteiro7/github-timeline/issues"
+  },
+  "homepage": "https://github.com/davimonteiro7/github-timeline#readme"
+}

@@ -1,0 +1,53 @@
+.container-details {
+    background-image: linear-gradient( #361fa7 50%, #361fa7 50%,#3c27a1 50%);
+    line-height: 150px;
+    height: 300px;
+    padding-bottom: 60px;
+}
+
+.searc-header {
+    padding-top: 60px;
+    color: white;
+    margin: auto;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    text-shadow: none;
+}
+.searc-box {
+    display: flex;
+}
+.search-field {
+    margin-top: 0;
+    margin-left: 18%;
+    padding: 14px 14px 14px 60px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 17);
+    width: 50%;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 28px;
+    color: rgba(64, 64, 0, 64);
+    background-image: url(https://www.appdynamics.com/c/dam/r/appdynamics/fw/header/search.svg);
+    background-position: 14px 16px;
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.see-results {
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(64, 64, 0, 64);;
+    padding: 14px 14px 14px 14px;
+    text-decoration: none;
+    background-color: white;
+    transition: background-color 1.2s;
+}
+
+.see-results:hover {
+    background-color:#a9a1d1;   
+}
