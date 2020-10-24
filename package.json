@@ -2,8 +2,9 @@
   "name": "github-timeline",
   "version": "1.0.0",
   "description": "Study project to pratice how to consume and implement apis, using graphQL and Node.js. Based on challenge at : https://github.com/florinpop17/app-ideas/blob/master/Projects/3-Advanced/GitHub-Timeline-App.md.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/davimonteiro7/github-timeline/issues"
   },
-  "homepage": "https://github.com/davimonteiro7/github-timeline#readme"
+  "homepage": "https://github.com/davimonteiro7/github-timeline#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
 }
