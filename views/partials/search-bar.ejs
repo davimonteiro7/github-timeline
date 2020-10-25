@@ -9,18 +9,10 @@
     <body>
         <div id="container-search" class="container-details">
             <h1 class="searc-header">Enter a username and generate your github timeline</h1>
-            <div class="search-box">
-                <input class="search-field" type="text" placeholder="username..." required>
-                <a href="#" class="see-results" >Generate</a>
-            </div>
+            <form class="search-box" action="/timeline" method="GET">
+                <input name="username" class="search-field" type="text" placeholder="username..." required>
+                <button class="see-results">Generate</button>
+            </form>
         </div>
-        <% if (fakeRepos.hasData) { %>
-            <%- include('partials/timeline.ejs') %>    
-        <% } %>
-        
-       
-      
-
-
     </body>
 </html>

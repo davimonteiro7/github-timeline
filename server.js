@@ -14,11 +14,14 @@ const fakeRepos = {
     fakedate: 'fakedate'
 }
 
-
 app.get('/', (req, res) => {
-    res.render('index', {fakeRepos});
+    res.render('home');
 });
 
-
+app.get('/timeline', (req, res) => {
+    const username = req.query.username;
+    
+    res.render('timeline', {fakeRepos});
+});
 
 app.listen(4000, () => console.log('Example app listening on port 4000'));
