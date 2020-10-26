@@ -1,3 +1,7 @@
+
+body{
+    margin: 0;
+}
 .container-details {
     background: #240f8b;
     line-height: 150px;
@@ -8,7 +12,7 @@
 .searc-header {
     padding-top: 10px;
     color: white;
-    margin: auto;
+    margin: 0;
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;

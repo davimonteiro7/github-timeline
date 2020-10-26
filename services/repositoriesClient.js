@@ -1,28 +1,32 @@
-const {graphql} = require('@octokit/graphql');
+const { graphql } = require("@octokit/graphql");
+require('dotenv').config();
 
-const userRes = async () => {
-    const {user} = await graphql(
-    `   query{
+const graphqlWithAuth = graphql.defaults({
+  headers: {
+    //Create a .env file and configure your personal github token there.
+    authorization: `token ${process.env.SECRET_API}`
+  },
+});
 
-        user(login:"davimonteiro7"){
-          name
-          repositories(first:100, orderBy:{field: CREATED_AT ,direction:ASC}){
-            nodes{
-              createdAt
-              name
-              description
-            } 
-          }
+async function getReposByUser(username) {
+  return await graphqlWithAuth(`
+    { 
+      user(login: "${username}"){
+        name
+        repositories(first:100, orderBy:{field: CREATED_AT ,direction:ASC}){
+          nodes{
+            createdAt
+            name
+            description
+          } 
         }
-        }    
-    `,
-    {
-      headers: {
-        authorization: `token fbe14dad53d9a87d93f694368c7d46558d4172b4`,
-      },
+      }
     }
-  );
-
-  return await user;
+  `).then(data => {
+      return {
+        repos: data.user.repositories.nodes
+      }
+    });
 }
-  console.log(userRes());
+
+module.exports = getReposByUser;

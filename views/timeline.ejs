@@ -6,41 +6,22 @@
     <link rel="stylesheet" href="./public/css/timeline.css" />
   </head>
   <body>
-    <%- include('partials/search-bar.ejs') %> 
+    <%- include('partials/search-bar.ejs') %>
+     
     <section class="timeline-container">
       <h1 class="timeline-header">Repository Timeline</h1>
     </section>
     <section class="timeline">
       <ul>
-        <li>
-          <div class="timeline-item">
-              <time pubdate>2020-10-24</time>  
-              <h3>LOREM IPSUM DOLOR</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque,
-                facilis quo maiores magnam modi ab libero praesentium blanditiis.
-              </p> 
-            </div>
-        </li>
-        <li>
-          <div class="timeline-item">
-              <time pubdate>2020-10-25</time>
-              <h3>LOREM IPSUM DOLOR</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque,
-                facilis quo maiores magnam modi ab libero praesentium blanditiis.
-              </p>
-            </div>
-        </li>
-        <li>
-          <div class="timeline-item">
-              <time pubdate>2020-10-26</time>  
-              <h3>LOREM IPSUM DOLOR</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque,
-                facilis quo maiores magnam modi ab libero praesentium blanditiis.
-              </p>
-            </div>
-        </li>
+        <% reposObject.repos.forEach(repo => { %>  
+          <li>
+            <div class="timeline-item">
+                <time pubdate><%- repo.createdAt %></time>  
+                <h3><%- repo.name %></h3>
+                <p><%- repo.description %></p> 
+              </div>
+          </li>
+        <% }); %>
       </ul>
     </section>
   </body>

@@ -1,0 +1,16 @@
+body {
+    font: normal 16px/1.5 'Courier New', Courier, monospace;
+    background:#ffffff;
+    color:  #240f8b;
+    overflow-x: hidden;
+    margin: 0;
+
+}
+
+.timeline-container{
+    margin: auto;
+    width: 90%;
+    font-size:  25px;
+    max-width: 1200px;
+    text-align: center;
+}
