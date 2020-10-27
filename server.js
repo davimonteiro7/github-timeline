@@ -3,6 +3,13 @@ const express = require('express');
 const app = express();
 
 const getReposByUser = require('./services/repositoriesClient');
+const yearsOccurency = (years = []) => {
+    years.forEach((year, index) => {
+        if (year == year[index + 1]){
+            console.log(year);
+        } 
+    }) 
+}
 
 app.use('/public',express.static('./views/public'));
 app.set('view engine', 'ejs');
@@ -12,11 +19,16 @@ app.get('/', (req, res) => {
 });
 app.get('/timeline', (req, res) => {
     const username = req.query.username;
-    console.log(username);
-
     getReposByUser(username).then(reposObject => {
+        
+        //var years = [];
+        //reposObject.repos.forEach(repo => {
+        //    const year = new Date(repo.createdAt).getFullYear();
+        //    reposByYear.push(year);
+        //});
+        //yearsOccurency(years);
         res.render('timeline', {reposObject});
-        console.log(reposObject);
+        
     }).catch(error => {
         console.log('Invalid Username!');
         res.render('alert-message');
