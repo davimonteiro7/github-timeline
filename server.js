@@ -1,15 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-
+let ejs = require('ejs');
 const getReposByUser = require('./services/repositoriesClient');
-const yearsOccurency = (years = []) => {
-    years.forEach((year, index) => {
-        if (year == year[index + 1]){
-            console.log(year);
-        } 
-    }) 
-}
 
 app.use('/public',express.static('./views/public'));
 app.set('view engine', 'ejs');
@@ -20,18 +13,37 @@ app.get('/', (req, res) => {
 app.get('/timeline', (req, res) => {
     const username = req.query.username;
     getReposByUser(username).then(reposObject => {
+        var repos = reposObject.repos;
+
+        function reposByYear(repos){
+            const years = [];
+            repos.forEach(repo => {
+                const year = new Date(repo.createdAt).getFullYear();
+                years.push(year);
+            });
+
+            const reposOnYear = years.reduce((objYears, year) => {
+                if(typeof objYears[year] == 'undefined'){
+                    objYears[year] = 1;
+                }else{
+                    objYears[year] += 1;
+                }
+                return objYears;
+            }, {})
+            
+            return reposOnYear;
+        }
         
-        //var years = [];
-        //reposObject.repos.forEach(repo => {
-        //    const year = new Date(repo.createdAt).getFullYear();
-        //    reposByYear.push(year);
-        //});
-        //yearsOccurency(years);
-        res.render('timeline', {reposObject});
+        const rby = Object.entries(reposByYear(repos));
+        console.log(rby);
+        res.render('timeline', {reposObject, rby}, );
         
+        
+
     }).catch(error => {
-        console.log('Invalid Username!');
+        console.log('Invalid Username!', error);
         res.render('alert-message');
       });
+
 });
 app.listen(4000, () => console.log('Example app listening on port 4000'));
