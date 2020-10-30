@@ -10,8 +10,15 @@
      
     <section class="timeline-container">
       <h1 class="timeline-header">Repository Timeline</h1>
-      <h2 class="timeline-header"><%- rby %></h2>
     </section>
+    <span class="repo-on-year">
+      Repos tallied by the year
+      <ul>
+        <% rby.forEach(yearData => { %>
+          <li><%- yearData[0] %> : <%- yearData[1] %></li>
+        <%});%>
+      </ul>
+    </span>
     <section class="timeline">
       <ul>
         <% reposObject.repos.forEach(repo => { %>  

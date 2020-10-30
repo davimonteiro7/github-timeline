@@ -95,3 +95,17 @@ time {
     font-weight: bold;
     margin-bottom: 1px;
 }
+
+.repo-on-year{
+    position: absolute;
+    display: block;
+    width: 245px;
+    background-color: #240f8b;
+    color: #ffffff;
+    padding: 10px ;
+    margin-left: 50px;
+}
+.repo-on-year ul {
+    position: relative;
+    left: 35%;
+}
